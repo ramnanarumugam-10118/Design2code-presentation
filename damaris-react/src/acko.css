@@ -1,0 +1,20 @@
+/* ACKO design system: Tailwind v4 + ACKO tokens + per-component CSS.
+   This file is loaded by main.tsx (imported once globally). The
+   per-component CSS uses @apply directives that need Tailwind v4 to
+   resolve, which is why the @tailwindcss/vite plugin is registered
+   in vite.config.ts. */
+
+@import "tailwindcss";
+
+@import "@acko/tokens/tokens.css";
+@import "@acko/tokens/theme.css";
+
+@import "@acko/css/button.css";
+@import "@acko/css/text-input.css";
+@import "@acko/css/textarea.css";
+@import "@acko/css/checkbox.css";
+@import "@acko/css/radio.css";
+@import "@acko/css/card.css";
+@import "@acko/css/label.css";
+@import "@acko/css/field.css";
+@import "@acko/css/typography.css";
