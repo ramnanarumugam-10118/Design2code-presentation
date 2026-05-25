@@ -31,6 +31,10 @@ export default function App() {
       // behavior when an input has focus.
       e.preventDefault();
       e.stopPropagation();
+      e.stopImmediatePropagation();
+
+      // Release focus from any ACKO input so it can't re-capture future keys
+      (document.activeElement as HTMLElement)?.blur?.();
 
       const c = curRef.current;
       const s = stepRef.current;
@@ -80,7 +84,7 @@ export default function App() {
   return (
     <>
       <div id="pres">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="sync">
           <motion.div
             key={cur}
             className={'slide' + (isLight ? ' light' : '')}
@@ -88,7 +92,7 @@ export default function App() {
             initial="initial"
             animate="animate"
             exit="exit"
-            transition={{ duration: 0.45, ease }}
+            transition={{ duration: 0.35, ease }}
           >
             <SlideComponent step={step} />
           </motion.div>

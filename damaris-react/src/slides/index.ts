@@ -3,7 +3,6 @@ import Slide02 from './Slide02';
 import Slide03 from './Slide03';
 import Slide04 from './Slide04';
 import SlideFoundation from './SlideFoundation';
-import SlideComponents from './SlideComponents';
 import SlideDesignSystem from './SlideDesignSystem';
 import Slide05 from './Slide05';
 import SlideWorkflowComparison from './SlideWorkflowComparison';
@@ -21,18 +20,17 @@ export type SlideComponent = React.FC<{ step?: number }> & { theme: Theme; steps
 
 export const slides: SlideComponent[] = [
   Slide01,
-  Slide02,            // Problem (5 problems, glassmorphic light cards)
+  Slide02,            // Problem (5 problems, glassmorphic light list)
   Slide03,            // Scope (4 pointers, glassmorphic)
-  Slide04,            // Architecture (2 pillars)
+  Slide04,            // What we built (2 pillars, in sequence)
   SlideFoundation,    // Design-system foundation (5 numbered points + L0–L4 visual)
-  SlideComponents,    // Components showcase by hierarchy
   SlideDesignSystem,  // Claim-form morph driven by chat prompts
   Slide05,            // How we ship today (workflow journey)
-  Slide09,            // Demo — moved up to sit right after the workflow
+  Slide09,            // Demo — interstitial
   SlideWorkflowComparison,
   Slide06,
   Slide07,
-  Slide08,
+  Slide08,            // Six shifts (now light + horizontal list)
   SlideHonestScope,
   Slide10,
   Slide11,

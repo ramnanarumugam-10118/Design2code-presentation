@@ -4,10 +4,48 @@ import { LOGO_LIGHT } from '../assets';
 import type { SlideComponent } from './index';
 
 const ROWS = [
-  { n: '01', title: 'Design system + AI tooling', body: 'Build the foundation.', pill: 'Now', dot: 'amber' as const },
-  { n: '02', title: 'Pilots', body: 'Three live. Learning in real time.', pill: 'In progress', dot: 'amber' as const },
-  { n: '03', title: 'Expand', body: 'Health, Auto, Car — all next.', pill: 'Up next', dot: 'red' as const },
-  { n: '04', title: 'Default', body: 'Anyone at ACKO ships their own ideas.', pill: 'Goal', dot: 'red' as const },
+  {
+    n: '01',
+    title: 'Expand the design system',
+    body: 'Add more components and deepen coverage across product surfaces.',
+    pill: 'Now',
+    dot: 'amber' as const,
+  },
+  {
+    n: '02',
+    title: 'Governance model for components',
+    body: 'Define ownership, contribution standards, and review process for every component. Engineering and design aligned on how the system grows.',
+    pill: 'Now',
+    dot: 'amber' as const,
+  },
+  {
+    n: '03',
+    title: 'Flutter workflow',
+    body: 'Bring the design-to-code pipeline to Flutter, end to end.',
+    pill: 'Next',
+    dot: 'amber' as const,
+  },
+  {
+    n: '04',
+    title: 'Default for every designer',
+    body: 'Workflow adopted as the default across the design org.',
+    pill: 'Up next',
+    dot: 'red' as const,
+  },
+  {
+    n: '05',
+    title: 'Migrate existing pages',
+    body: 'Move legacy surfaces onto the new system, progressively.',
+    pill: 'Up next',
+    dot: 'red' as const,
+  },
+  {
+    n: '06',
+    title: 'Content + visual engines',
+    body: 'Flush out the content and visual generation engines into production.',
+    pill: 'Goal',
+    dot: 'red' as const,
+  },
 ];
 
 const Slide10: SlideComponent = () => (
@@ -35,10 +73,10 @@ const Slide10: SlideComponent = () => (
             variants={fadeUp}
             style={{
               display: 'grid',
-              gridTemplateColumns: '40px 110px 1fr 150px',
-              gap: 20,
+              gridTemplateColumns: '40px 1fr',
+              gap: 16,
               alignItems: 'center',
-              padding: '14px 0',
+              padding: '11px 0',
               borderBottom: i === ROWS.length - 1 ? 'none' : '1px solid rgba(88,0,146,0.14)',
             }}
           >
@@ -52,17 +90,10 @@ const Slide10: SlideComponent = () => (
             >
               {row.n}
             </p>
-            <div className="img-ph light" style={{ height: 70, borderRadius: 8, fontSize: 9 }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <path d="M21 15l-5-5L5 21" />
-              </svg>
-            </div>
             <div>
               <p
                 style={{
-                  fontSize: 18,
+                  fontSize: 17,
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontWeight: 600,
                   color: '#000000',
@@ -75,10 +106,6 @@ const Slide10: SlideComponent = () => (
               <p className="body-sm" style={{ fontSize: 13 }}>
                 {row.body}
               </p>
-            </div>
-            <div className="pill" style={{ justifyContent: 'center' }}>
-              <div className={'pill-dot ' + row.dot} />
-              {row.pill}
             </div>
           </motion.div>
         ))}

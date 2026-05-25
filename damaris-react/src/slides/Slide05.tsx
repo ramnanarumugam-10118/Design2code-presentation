@@ -235,7 +235,7 @@ const Slide05: SlideComponent = ({ step = 0 }) => (
             color: '#000000',
           }}
         >
-          How we ship today.
+          The new workflow.
         </h2>
       </motion.div>
 

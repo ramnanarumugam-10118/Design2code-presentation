@@ -33,8 +33,8 @@ const Slide04: SlideComponent = () => (
       <img src={LOGO_LIGHT} style={{ height: 20, opacity: 0.7 }} alt="ACKO" />
     </motion.div>
 
-    <div className="content">
-      <motion.div variants={fadeUp} style={{ marginBottom: 40 }}>
+    <div className="content" style={{ justifyContent: 'center', gap: 36 }}>
+      <motion.div variants={fadeUp}>
         <div className="eyebrow">What we built</div>
         <h2
           style={{
@@ -63,11 +63,9 @@ const Slide04: SlideComponent = () => (
 
       <div
         style={{
-          flex: 1,
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
           gap: 24,
-          minHeight: 0,
         }}
       >
         {PILLARS.map((p) => (

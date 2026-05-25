@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { staggerParent, fadeUp, softFade } from '../motion';
-import { LOGO_DARK } from '../assets';
+import { LOGO_LIGHT } from '../assets';
 import type { SlideComponent } from './index';
 
 interface Shift {
@@ -26,9 +26,9 @@ const SHIFTS: Shift[] = [
   {
     title: 'Cycle time compression',
     desc:
-      'The path from idea to launch is significantly shorter. Manual rebuild and iterative QA loops are largely eliminated.',
-    iconColor: '#fbbf24',
-    chipBg: 'rgba(251,191,36,0.14)',
+      'The path from idea to launch is significantly shorter. Manual rebuilds and iterative QA loops are largely eliminated.',
+    iconColor: '#d97706',
+    chipBg: 'rgba(251,191,36,0.18)',
     icon: (
       <svg {...ICON_PROPS}>
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
@@ -39,8 +39,8 @@ const SHIFTS: Shift[] = [
     title: 'Engineering efficiency',
     desc:
       'Code output follows framework conventions and design standards. Engineers spend their time on integration and logic, not recreating UI.',
-    iconColor: '#22d3ee',
-    chipBg: 'rgba(34,211,238,0.14)',
+    iconColor: '#0891b2',
+    chipBg: 'rgba(34,211,238,0.18)',
     icon: (
       <svg {...ICON_PROPS}>
         <circle cx="12" cy="12" r="3" />
@@ -49,11 +49,11 @@ const SHIFTS: Shift[] = [
     ),
   },
   {
-    title: 'Design unbottlenecked',
+    title: 'Design democratised',
     desc:
       'Anyone with the right judgement can create or modify designs. Capability is decoupled from Figma expertise.',
-    iconColor: '#c084fc',
-    chipBg: 'rgba(192,132,252,0.14)',
+    iconColor: '#7c3aed',
+    chipBg: 'rgba(192,132,252,0.20)',
     icon: (
       <svg {...ICON_PROPS}>
         <polygon points="12 2 22 12 12 22 2 12 12 2" />
@@ -64,8 +64,8 @@ const SHIFTS: Shift[] = [
     title: 'Systemic visual consistency',
     desc:
       'Because everything flows from one token-based system, consistency is enforced structurally — not through manual review.',
-    iconColor: '#ec4899',
-    chipBg: 'rgba(236,72,153,0.14)',
+    iconColor: '#be185d',
+    chipBg: 'rgba(236,72,153,0.18)',
     icon: (
       <svg {...ICON_PROPS}>
         <line x1="21" y1="6" x2="3" y2="6" />
@@ -78,8 +78,8 @@ const SHIFTS: Shift[] = [
     title: 'Easy change management',
     desc:
       'Token-based architecture means a colour, spacing, or component change propagates everywhere from one update.',
-    iconColor: '#fb923c',
-    chipBg: 'rgba(251,146,60,0.14)',
+    iconColor: '#c2410c',
+    chipBg: 'rgba(251,146,60,0.18)',
     icon: (
       <svg {...ICON_PROPS}>
         <polyline points="23 4 23 10 17 10" />
@@ -92,8 +92,8 @@ const SHIFTS: Shift[] = [
     title: 'Accessibility — ahead of the deadline',
     desc:
       'WCAG 2.0 is built into the system. We are positioned ahead of the IRDAI enforcement timeline.',
-    iconColor: '#4ade80',
-    chipBg: 'rgba(74,222,128,0.14)',
+    iconColor: '#15803d',
+    chipBg: 'rgba(74,222,128,0.22)',
     icon: (
       <svg {...ICON_PROPS}>
         <polyline points="20 6 9 17 4 12" />
@@ -114,27 +114,44 @@ const Slide08: SlideComponent = () => (
       variants={softFade}
       style={{ position: 'absolute', top: 32, right: 80, zIndex: 5 }}
     >
-      <img src={LOGO_DARK} style={{ height: 20, opacity: 0.5 }} alt="ACKO" />
+      <img src={LOGO_LIGHT} style={{ height: 20, opacity: 0.7 }} alt="ACKO" />
     </motion.div>
 
     <div className="content">
-      <motion.div variants={fadeUp} style={{ marginBottom: 30 }}>
-        <div className="eyebrow" style={{ color: '#ad56ff' }}>
-          What this changes
-        </div>
-        <h2 className="h-lg" style={{ color: '#ffffff' }}>
+      <motion.div variants={fadeUp} style={{ marginBottom: 28 }}>
+        <div className="eyebrow">What this changes</div>
+        <h2
+          style={{
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontWeight: 700,
+            fontSize: 'clamp(44px, 5.6vw, 76px)',
+            lineHeight: 1.05,
+            letterSpacing: '-1.4px',
+            color: '#000000',
+          }}
+        >
           Six shifts,{' '}
-          <span style={{ color: '#ad56ff' }}>across the org</span>
+          <span
+            style={{
+              background:
+                'linear-gradient(135deg, #580092 0%, #ad56ff 60%, #d1aef9 100%)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              color: 'transparent',
+            }}
+          >
+            across the org.
+          </span>
         </h2>
       </motion.div>
 
+      {/* Horizontal-row list: icon chip on the left, title + desc on the right */}
       <div
         style={{
           flex: 1,
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr 1fr',
-          gridTemplateRows: '1fr 1fr',
-          gap: 16,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 12,
           minHeight: 0,
         }}
       >
@@ -142,18 +159,19 @@ const Slide08: SlideComponent = () => (
           <motion.div
             key={shift.title}
             variants={fadeUp}
-            className="card"
+            className="card-light"
             style={{
-              padding: 24,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 14,
+              padding: '16px 24px',
+              display: 'grid',
+              gridTemplateColumns: '44px 1fr',
+              alignItems: 'center',
+              gap: 22,
             }}
           >
             <div
               style={{
-                width: 38,
-                height: 38,
+                width: 40,
+                height: 40,
                 borderRadius: 10,
                 background: shift.chipBg,
                 display: 'flex',
@@ -165,16 +183,17 @@ const Slide08: SlideComponent = () => (
             >
               {shift.icon}
             </div>
+
             <div>
               <p
                 style={{
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontWeight: 700,
-                  fontSize: 18,
-                  color: '#ffffff',
+                  fontSize: 'clamp(16px, 1.5vw, 19px)',
+                  color: '#000000',
                   letterSpacing: '-0.3px',
                   lineHeight: 1.25,
-                  marginBottom: 8,
+                  marginBottom: 4,
                 }}
               >
                 {shift.title}
@@ -183,9 +202,10 @@ const Slide08: SlideComponent = () => (
                 style={{
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: 13,
-                  color: '#9f9f9f',
+                  color: '#585858',
                   fontWeight: 400,
-                  lineHeight: 1.55,
+                  lineHeight: 1.5,
+                  letterSpacing: '-0.1px',
                 }}
               >
                 {shift.desc}
@@ -198,5 +218,5 @@ const Slide08: SlideComponent = () => (
   </motion.div>
 );
 
-Slide08.theme = 'dark';
+Slide08.theme = 'light';
 export default Slide08;

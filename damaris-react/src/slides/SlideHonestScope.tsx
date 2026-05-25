@@ -40,8 +40,6 @@ const SlideHonestScope: SlideComponent = () => (
     style={{
       position: 'absolute',
       inset: 0,
-      background:
-        'linear-gradient(180deg, #f4eff9 0%, #ece3f5 60%, #e3d6f1 100%)',
     }}
     variants={staggerParent}
     initial="initial"

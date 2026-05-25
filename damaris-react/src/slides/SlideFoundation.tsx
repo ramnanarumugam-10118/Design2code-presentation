@@ -19,18 +19,24 @@ const POINTS = [
   },
   {
     n: '03',
-    title: 'Standardised visual language',
+    title: 'Code ready components',
     desc:
-      'Codified from our latest designs and proven practices. We did not reinvent — we structured what was already working.',
+      'Production-ready components built in Figma and in code. React library fully operational; Flutter in progress.',
   },
   {
     n: '04',
-    title: 'Configurable design + accessibility',
+    title: 'Configurable design',
     desc:
-      'Tokens propagate everywhere automatically. WCAG 2.0 is enforced at the component level — not retrofitted later.',
+      'Tokens propagate everywhere automatically. Every design decision flows from a single source of truth.',
   },
   {
     n: '05',
+    title: 'Accessibility built-in',
+    desc:
+      'WCAG 2.0 enforced at the component level — not retrofitted. Positioned ahead of the IRDAI enforcement timeline.',
+  },
+  {
+    n: '06',
     title: 'Two systems for two contexts',
     desc:
       'A separate design system for Enterprise (B2B) / internal tools where functional density matters more than consumer aesthetics.',
@@ -148,15 +154,15 @@ const SlideFoundation: SlideComponent = () => (
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: 14,
-            justifyContent: 'space-between',
+            justifyContent: 'center',
+            gap: 0,
           }}
         >
           {POINTS.map((p, i) => (
             <div
               key={p.n}
               style={{
-                paddingBottom: 14,
+                padding: '11px 0',
                 borderBottom:
                   i < POINTS.length - 1 ? '1px solid rgba(88,0,146,0.10)' : 'none',
               }}

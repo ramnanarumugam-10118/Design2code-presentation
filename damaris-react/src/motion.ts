@@ -3,11 +3,11 @@ import type { Variants, Transition } from 'framer-motion';
 // Snappy ease-out cubic-bezier — feels confident, not rubbery
 export const ease: Transition['ease'] = [0.22, 1, 0.36, 1];
 
-// Slide-to-slide transition (used by AnimatePresence)
+// Slide-to-slide transition (used by AnimatePresence, mode="sync" crossfade)
 export const slideFade: Variants = {
-  initial: { opacity: 0, y: 12, filter: 'blur(4px)' },
-  animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
-  exit:    { opacity: 0, y: -12, filter: 'blur(4px)' },
+  initial: { opacity: 0, filter: 'blur(6px)' },
+  animate: { opacity: 1, filter: 'blur(0px)' },
+  exit:    { opacity: 0, filter: 'blur(6px)' },
 };
 
 // Stagger container: parent of children that animate in sequence

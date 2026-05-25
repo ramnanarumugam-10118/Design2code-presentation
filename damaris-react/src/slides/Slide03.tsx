@@ -40,7 +40,7 @@ const SCOPE_ITEMS = [
   {
     n: '03',
     title: 'Content generation engine',
-    body: 'Words for every screen — generated, on-brand, and ready to ship. No more lorem ipsum holes in the design.',
+    body: 'Self-serve tools and frameworks for content generation across every touchpoint.',
     icon: (
       <svg {...ICON_PROPS}>
         <line x1="4" y1="7" x2="20" y2="7" />
@@ -78,7 +78,7 @@ const Slide03: SlideComponent = () => (
       <img src={LOGO_LIGHT} style={{ height: 20, opacity: 0.7 }} alt="ACKO" />
     </motion.div>
 
-    <div className="content" style={{ justifyContent: 'space-between' }}>
+    <div className="content" style={{ justifyContent: 'center', gap: 36 }}>
       <motion.div variants={fadeUp}>
         <div className="eyebrow">In scope</div>
         <h2
@@ -106,18 +106,18 @@ const Slide03: SlideComponent = () => (
         </h2>
       </motion.div>
 
-      <div className="g4" style={{ flex: 1, marginTop: 36, alignItems: 'stretch' }}>
+      <div className="g4" style={{ alignItems: 'stretch' }}>
         {SCOPE_ITEMS.map((c) => (
           <motion.div
             key={c.n}
             variants={fadeUp}
             className="card-light"
             style={{
-              padding: 28,
+              padding: 24,
+              height: 210,
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              gap: 60,
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>

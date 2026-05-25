@@ -284,13 +284,25 @@ const Slide06: SlideComponent = () => (
         }}
       >
         <motion.div variants={fadeUp}>
-          <PhoneMockup label="Bike journey" status="In progress" />
+          <PhoneMockup label="Bike journey" status="In UAT">
+            <img
+              src="/Bike-plan.png"
+              alt="Bike journey"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
+            />
+          </PhoneMockup>
         </motion.div>
         <motion.div variants={fadeUp}>
-          <PhoneMockup label="Landing page" status="In progress" />
+          <PhoneMockup label="Landing page" status="In UAT">
+            <img
+              src="/Bike-mobile.png"
+              alt="Landing page"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
+            />
+          </PhoneMockup>
         </motion.div>
         <motion.div variants={fadeUp}>
-          <PhoneMockup label="App polish" status="In progress" />
+          <PhoneMockup label="App polish" status="In UAT" />
         </motion.div>
       </div>
     </div>

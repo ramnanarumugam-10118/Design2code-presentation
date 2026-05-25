@@ -33,7 +33,7 @@ body {
 
 /* Background images per theme */
 .slide.light {
-  background-image: url('/BG_Light.png');
+  background-image: linear-gradient(rgba(255,255,255,0.62), rgba(255,255,255,0.62)), url('/BG_Light_New.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
