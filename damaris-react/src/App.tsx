@@ -16,6 +16,22 @@ export default function App() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      // Only intercept the four navigation keys — pass everything else through
+      // so the browser/devtools stay normal.
+      const isNavKey =
+        e.key === 'ArrowRight' ||
+        e.key === 'ArrowDown' ||
+        e.key === 'ArrowLeft' ||
+        e.key === 'ArrowUp';
+      if (!isNavKey) return;
+
+      // Capture-phase + stopPropagation so focused ACKO inputs (TextInput,
+      // Textarea, etc.) on slides like SlideDesignSystem can't swallow the
+      // arrow key. preventDefault avoids the default "move cursor in field"
+      // behavior when an input has focus.
+      e.preventDefault();
+      e.stopPropagation();
+
       const c = curRef.current;
       const s = stepRef.current;
       const slideSteps = slides[c].steps;
@@ -31,9 +47,7 @@ export default function App() {
           setCur(c + 1);
           setStep(0);
         }
-      }
-
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      } else {
         if (s > 0) {
           const ns = s - 1;
           stepRef.current = ns;
@@ -47,8 +61,10 @@ export default function App() {
       }
     };
 
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    // Capture phase (`true`) so we receive the key before any focused input
+    // can handle it.
+    window.addEventListener('keydown', onKey, true);
+    return () => window.removeEventListener('keydown', onKey, true);
   }, []); // Empty — refs keep values current without re-registering
 
   const handleNav = (n: number) => {

@@ -39,22 +39,25 @@ const SCOPE_ITEMS = [
   },
   {
     n: '03',
-    title: 'Design-to-code translation',
-    body: 'Designs translated to React, Flutter, Next JS — production-ready code, no manual handoff.',
+    title: 'Content generation engine',
+    body: 'Words for every screen — generated, on-brand, and ready to ship. No more lorem ipsum holes in the design.',
     icon: (
       <svg {...ICON_PROPS}>
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
+        <line x1="4" y1="7" x2="20" y2="7" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="17" x2="14" y2="17" />
       </svg>
     ),
   },
   {
     n: '04',
-    title: 'Accessibility & compliance',
-    body: 'WCAG 2.0 baked into every component. IRDAI compliant — ahead of the enforcement deadline.',
+    title: 'Visual generation engine',
+    body: 'Icons, illustrations and imagery generated on demand. The visual layer keeps up with the pace of design.',
     icon: (
       <svg {...ICON_PROPS}>
-        <polyline points="20 6 9 17 4 12" />
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <circle cx="8.5" cy="8.5" r="1.5" />
+        <path d="M21 15l-5-5L5 21" />
       </svg>
     ),
   },

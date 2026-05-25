@@ -173,7 +173,8 @@ const SlideWorkflowComparison: SlideComponent = () => (
             letterSpacing: '-1.8px',
           }}
         >
-          Three ways to ship.
+          Three workflows,{' '}
+          <span style={{ color: '#ad56ff' }}>head-to-head.</span>
         </h2>
       </motion.div>
 

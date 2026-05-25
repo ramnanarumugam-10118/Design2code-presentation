@@ -44,7 +44,7 @@ const PROBLEMS: Problem[] = [
   },
 ];
 
-function ProblemCard({ p }: { p: Problem }) {
+function ProblemRow({ p }: { p: Problem }) {
   const reg = !!p.regulatory;
   const accentColor = reg ? '#d4517f' : '#580092';
 
@@ -54,10 +54,11 @@ function ProblemCard({ p }: { p: Problem }) {
       className="card-light"
       style={{
         position: 'relative',
-        padding: '24px 28px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 10,
+        padding: '20px 30px',
+        display: 'grid',
+        gridTemplateColumns: '64px 1fr',
+        alignItems: 'center',
+        gap: 28,
         overflow: 'hidden',
         ...(reg
           ? {
@@ -92,39 +93,44 @@ function ProblemCard({ p }: { p: Problem }) {
           letterSpacing: '0.16em',
           color: accentColor,
           textTransform: 'uppercase',
+          lineHeight: 1.2,
           position: 'relative',
+          whiteSpace: 'nowrap',
         }}
       >
         {p.n}
-        {reg && ' — REGULATORY'}
+        {reg && (
+          <span style={{ display: 'block', marginTop: 2 }}>— REGULATORY</span>
+        )}
       </div>
 
-      <p
-        style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontWeight: 700,
-          fontSize: 'clamp(20px, 1.8vw, 26px)',
-          color: '#000000',
-          lineHeight: 1.2,
-          letterSpacing: '-0.4px',
-          position: 'relative',
-        }}
-      >
-        {p.title}
-      </p>
-      <p
-        style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: 14,
-          fontWeight: 400,
-          color: '#585858',
-          lineHeight: 1.55,
-          letterSpacing: '-0.1px',
-          position: 'relative',
-        }}
-      >
-        {p.desc}
-      </p>
+      <div style={{ position: 'relative' }}>
+        <p
+          style={{
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontWeight: 700,
+            fontSize: 'clamp(18px, 1.6vw, 22px)',
+            color: '#000000',
+            lineHeight: 1.25,
+            letterSpacing: '-0.3px',
+            marginBottom: 4,
+          }}
+        >
+          {p.title}
+        </p>
+        <p
+          style={{
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontSize: 13,
+            fontWeight: 400,
+            color: '#585858',
+            lineHeight: 1.55,
+            letterSpacing: '-0.1px',
+          }}
+        >
+          {p.desc}
+        </p>
+      </div>
     </motion.div>
   );
 }
@@ -166,33 +172,19 @@ const Slide02: SlideComponent = () => (
         </h2>
       </motion.div>
 
+      {/* Stacked list — each row spans the full width so the subtext is easy to read */}
       <div
         style={{
           flex: 1,
           display: 'flex',
           flexDirection: 'column',
-          gap: 16,
+          gap: 12,
           minHeight: 0,
         }}
       >
-        {/* 2 × 2 grid — problems 01–04 */}
-        <div
-          style={{
-            flex: 1,
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gridTemplateRows: '1fr 1fr',
-            gap: 16,
-            minHeight: 0,
-          }}
-        >
-          {PROBLEMS.slice(0, 4).map((p) => (
-            <ProblemCard key={p.n} p={p} />
-          ))}
-        </div>
-
-        {/* Full-width regulatory card — problem 05 */}
-        <ProblemCard p={PROBLEMS[4]} />
+        {PROBLEMS.map((p) => (
+          <ProblemRow key={p.n} p={p} />
+        ))}
       </div>
     </div>
   </motion.div>

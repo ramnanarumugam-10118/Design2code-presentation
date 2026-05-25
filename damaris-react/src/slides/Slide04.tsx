@@ -35,7 +35,7 @@ const Slide04: SlideComponent = () => (
 
     <div className="content">
       <motion.div variants={fadeUp} style={{ marginBottom: 40 }}>
-        <div className="eyebrow">Architecture</div>
+        <div className="eyebrow">What we built</div>
         <h2
           style={{
             fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -46,7 +46,7 @@ const Slide04: SlideComponent = () => (
             color: '#000000',
           }}
         >
-          Two pillars,{' '}
+          Two things,{' '}
           <span
             style={{
               background:
@@ -56,7 +56,7 @@ const Slide04: SlideComponent = () => (
               color: 'transparent',
             }}
           >
-            one product.
+            in sequence.
           </span>
         </h2>
       </motion.div>
