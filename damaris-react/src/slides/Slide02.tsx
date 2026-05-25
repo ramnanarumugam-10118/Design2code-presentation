@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { staggerParent, fadeUp, softFade } from '../motion';
-import { LOGO_DARK } from '../assets';
+import { LOGO_LIGHT } from '../assets';
 import type { SlideComponent } from './index';
 
 interface Problem {
@@ -46,28 +46,29 @@ const PROBLEMS: Problem[] = [
 
 function ProblemCard({ p }: { p: Problem }) {
   const reg = !!p.regulatory;
-  const accentColor = reg ? '#f06aa3' : '#9f9f9f';
-  const borderColor = reg ? 'rgba(240,106,163,0.32)' : 'rgba(173,86,255,0.20)';
+  const accentColor = reg ? '#d4517f' : '#580092';
 
   return (
     <motion.div
       variants={fadeUp}
+      className="card-light"
       style={{
         position: 'relative',
-        background: '#0a0a0a',
-        border: `1px solid ${borderColor}`,
-        borderRadius: 14,
         padding: '24px 28px',
         display: 'flex',
         flexDirection: 'column',
         gap: 10,
         overflow: 'hidden',
-        boxShadow: reg
-          ? '0 0 0 1px rgba(240,106,163,0.10), 0 10px 32px rgba(240,106,163,0.06)'
-          : 'none',
+        ...(reg
+          ? {
+              background: 'rgba(255,235,245,0.45)',
+              borderColor: 'rgba(212,81,127,0.40)',
+              boxShadow:
+                '0 6px 28px rgba(212,81,127,0.10), 0 0 0 1px rgba(212,81,127,0.06)',
+            }
+          : {}),
       }}
     >
-      {/* Subtle radial highlight on the regulatory card to draw the eye */}
       {reg && (
         <div
           style={{
@@ -94,7 +95,8 @@ function ProblemCard({ p }: { p: Problem }) {
           position: 'relative',
         }}
       >
-        {p.n}{reg && ' — REGULATORY'}
+        {p.n}
+        {reg && ' — REGULATORY'}
       </div>
 
       <p
@@ -102,7 +104,7 @@ function ProblemCard({ p }: { p: Problem }) {
           fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontWeight: 700,
           fontSize: 'clamp(20px, 1.8vw, 26px)',
-          color: '#ffffff',
+          color: '#000000',
           lineHeight: 1.2,
           letterSpacing: '-0.4px',
           position: 'relative',
@@ -115,7 +117,7 @@ function ProblemCard({ p }: { p: Problem }) {
           fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 14,
           fontWeight: 400,
-          color: '#9f9f9f',
+          color: '#585858',
           lineHeight: 1.55,
           letterSpacing: '-0.1px',
           position: 'relative',
@@ -139,7 +141,7 @@ const Slide02: SlideComponent = () => (
       variants={softFade}
       style={{ position: 'absolute', top: 32, right: 80, zIndex: 5 }}
     >
-      <img src={LOGO_DARK} style={{ height: 20, opacity: 0.5 }} alt="ACKO" />
+      <img src={LOGO_LIGHT} style={{ height: 20, opacity: 0.7 }} alt="ACKO" />
     </motion.div>
 
     <div className="content">
@@ -150,9 +152,14 @@ const Slide02: SlideComponent = () => (
             fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontWeight: 700,
             fontSize: 'clamp(48px, 6.4vw, 84px)',
-            lineHeight: 1.05,
+            lineHeight: 1.15,
             letterSpacing: '-1.6px',
-            color: '#ffffff',
+            background:
+              'linear-gradient(135deg, #580092 0%, #ad56ff 60%, #d1aef9 100%)',
+            WebkitBackgroundClip: 'text',
+            backgroundClip: 'text',
+            color: 'transparent',
+            paddingBottom: '0.15em',
           }}
         >
           Where we are today.
@@ -168,7 +175,7 @@ const Slide02: SlideComponent = () => (
           minHeight: 0,
         }}
       >
-        {/* 2 × 2 grid: problems 01 – 04 */}
+        {/* 2 × 2 grid — problems 01–04 */}
         <div
           style={{
             flex: 1,
@@ -184,12 +191,12 @@ const Slide02: SlideComponent = () => (
           ))}
         </div>
 
-        {/* Full-width regulatory card: problem 05 */}
+        {/* Full-width regulatory card — problem 05 */}
         <ProblemCard p={PROBLEMS[4]} />
       </div>
     </div>
   </motion.div>
 );
 
-Slide02.theme = 'dark';
+Slide02.theme = 'light';
 export default Slide02;

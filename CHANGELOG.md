@@ -13,6 +13,19 @@ Format: `[Date] | Slide/File | Change | Reason`
 
 ---
 
+### Restructured the opening act — Slide02 → glassmorphic light, Slide03 → Scope, Slide04 → Architecture, plus 2 new slides (Foundation, Components)
+- **Files:** `Slide02.tsx`, `Slide03.tsx`, `Slide04.tsx`, **NEW** `SlideFoundation.tsx`, **NEW** `SlideComponents.tsx`, `slides/index.ts`, `PROJECT.md`
+- **Narrative arc now**: Title → **Problem → Scope → Architecture → Foundation → Components** → Claim-form morph → Workflow → …
+- **Changes:**
+  1. **Slide02 (Problem) — back to light glassmorphic**: dark theme reverted to light, cards use the existing `.card-light` frosted-glass class. Same 5 problems / 2×2 + 1 wide layout, same regulatory pink accent on card 05. Heading restored to the purple gradient ("Where we are today.")
+  2. **Slide03 (Scope) — replaced "Four things we're building"**: light theme, 4 glassmorphic cards with icon + numbered tag + title + body. Pointers: 01 Foundational design system, 02 AI-powered design tooling, 03 Design-to-code translation, 04 Accessibility & compliance. Heading: "Four bets, one system."
+  3. **Slide04 (Architecture) — replaced "Visuals + tone"**: 2 large cards side-by-side, each with a purple-gradient top border (deck-framework styling). Text taken from the reference image: 01 "A foundational design system" + body, 02 "An AI-powered design-to-code workflow" + body. Heading: "Two pillars, one product."
+  4. **NEW SlideFoundation**: 2-column layout — LEFT: 5 numbered points (Tokens / Atoms, molecules and organisms / Standardised visual language / Configurable design + accessibility / Two systems for two contexts), RIGHT: L0–L4 hierarchy visualization in glassmorphic rows with token swatches, atom pills, molecule clusters, organism bar, page-layout outline. Heading: "A proper foundation, built ground-up."
+  5. **NEW SlideComponents**: 2×2 grid showing real ACKO components by hierarchy — L0 (token swatches, 6 colors), L1 (Button variants), L2 (TextInput + Checkbox), L3 (RadioGroup + Submit Button as a composite form section). Heading: "Built-in components."
+  6. **Slide order** updated in `slides/index.ts`. Deck grows from 14 → 16 slides. `PROJECT.md` slide table fully rewritten
+
+---
+
 ### Slide02 — Full redesign: 5 problem cards with subtexts (2×2 grid + regulatory bar), dark theme
 - **File:** `src/slides/Slide02.tsx`, `PROJECT.md`
 - **Changes:**

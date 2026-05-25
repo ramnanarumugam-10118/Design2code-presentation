@@ -19,19 +19,21 @@ Internal pitch deck for Project Damaris / Aurora — presenting the AI-assisted 
 | # | File | Theme | Title / Purpose |
 |---|------|-------|-----------------|
 | 1 | Slide01 | dark | Title card — "Project: XXXXXX" |
-| 2 | Slide02 | dark | "Where we are today" — 5 problem cards (2×2 grid + 1 full-width regulatory bar with pink accent) |
-| 3 | Slide03 | dark | "Four things we're building" — 4 feature cards |
-| 4 | Slide04 | light | "Visuals + tone" — image placeholder |
-| 5 | SlideDesignSystem | light | Design system intro — button zooms out, components appear |
-| 6 | Slide05 | light | "How we ship today" — 5-step workflow journey with step-by-step highlight |
-| 7 | Slide09 | dark | "Two workflows. One toolkit" — Demo slide (2 screen recording placeholders) |
-| 8 | SlideWorkflowComparison | light | "Three ways to ship" — Traditional vs AI-only vs Our Way |
-| 9 | Slide06 | light | "We already started" — 3 pilot project cards |
-| 10 | Slide07 | light | "Numbers from the Bike pilot" — 3 orbit stat circles |
-| 11 | Slide08 | dark | "Six shifts, across the org" — 3×2 grid of impact cards with colored icon chips |
-| 12 | SlideHonestScope | light | "Being clear about the current edge" — 4 caveat cards with amber accent bar; bold sentence acts as the card heading |
-| 13 | Slide10 | light | "What's next" — 4-row roadmap |
-| 14 | Slide11 | dark | Closing card — "Anyone at ACKO with good judgement and taste can now build." |
+| 2 | Slide02 | light | "Where we are today" — 5 problem cards in glassmorphic 2×2 grid + 1 full-width regulatory bar (pink accent) |
+| 3 | Slide03 | light | "Four bets, one system" — 4 glassmorphic Scope pointers (design system, AI tooling, design-to-code, accessibility) |
+| 4 | Slide04 | light | "Two pillars, one product" — Architecture: 2 cards (foundational design system + AI design-to-code workflow) |
+| 5 | SlideFoundation | light | "A proper foundation, built ground-up" — 5 numbered points + L0–L4 hierarchy visualization |
+| 6 | SlideComponents | light | "Built-in components" — 2×2 grid of real ACKO components by hierarchy (Tokens, Atoms, Molecules, Organisms) |
+| 7 | SlideDesignSystem | light | Claim-form morph — chat-driven kit → mobile form → desktop form |
+| 8 | Slide05 | light | "How we ship today" — 5-step workflow journey with step-by-step highlight |
+| 9 | Slide09 | dark | "Two workflows. One toolkit" — Demo interstitial |
+| 10 | SlideWorkflowComparison | light | "Three ways to ship" — Traditional vs AI-only vs Streamlined Way |
+| 11 | Slide06 | light | "We already started" — 3 phone-mockup pilot project cards |
+| 12 | Slide07 | light | "Numbers from the Bike pilot" — 3 orbit stat circles |
+| 13 | Slide08 | dark | "Six shifts, across the org" — 3×2 grid of impact cards with colored icon chips |
+| 14 | SlideHonestScope | light | "Being clear about the current edge" — 4 caveat cards with amber accent bar |
+| 15 | Slide10 | light | "What's next" — 4-row roadmap |
+| 16 | Slide11 | dark | Closing card — "Anyone at ACKO with good judgement and taste can now build." |
 
 ## Key Files
 - `src/slides/index.ts` — slide registry and `SlideComponent` type
