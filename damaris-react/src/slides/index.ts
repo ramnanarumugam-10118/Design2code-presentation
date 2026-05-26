@@ -2,6 +2,7 @@ import Slide01 from './Slide01';
 import Slide02 from './Slide02';
 import Slide03 from './Slide03';
 import Slide04 from './Slide04';
+import SlideIntroFoundation from './SlideIntroFoundation';
 import SlideFoundation from './SlideFoundation';
 import SlideDesignSystem from './SlideDesignSystem';
 import Slide05 from './Slide05';
@@ -23,6 +24,7 @@ export const slides: SlideComponent[] = [
   Slide02,            // Problem (5 problems, glassmorphic light list)
   Slide03,            // Scope (4 pointers, glassmorphic)
   Slide04,            // What we built (2 pillars, in sequence)
+  SlideIntroFoundation, // Visual language intro — consistent way of speaking visually
   SlideFoundation,    // Design-system foundation (5 numbered points + L0–L4 visual)
   SlideDesignSystem,  // Claim-form morph driven by chat prompts
   Slide05,            // How we ship today (workflow journey)

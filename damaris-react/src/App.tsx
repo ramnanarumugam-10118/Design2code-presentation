@@ -13,6 +13,12 @@ export default function App() {
   // Refs so the single keydown listener always reads current values
   const curRef = useRef(0);
   const stepRef = useRef(0);
+  const presRef = useRef<HTMLDivElement>(null);
+
+  // Keep #pres focused so ACKO inputs can never steal navigation keys
+  useEffect(() => {
+    presRef.current?.focus({ preventScroll: true });
+  }, [cur]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -25,16 +31,13 @@ export default function App() {
         e.key === 'ArrowUp';
       if (!isNavKey) return;
 
-      // Capture-phase + stopPropagation so focused ACKO inputs (TextInput,
-      // Textarea, etc.) on slides like SlideDesignSystem can't swallow the
-      // arrow key. preventDefault avoids the default "move cursor in field"
-      // behavior when an input has focus.
       e.preventDefault();
       e.stopPropagation();
       e.stopImmediatePropagation();
 
-      // Release focus from any ACKO input so it can't re-capture future keys
+      // Blur any focused input, then re-focus the inert slide container
       (document.activeElement as HTMLElement)?.blur?.();
+      presRef.current?.focus({ preventScroll: true });
 
       const c = curRef.current;
       const s = stepRef.current;
@@ -83,7 +86,7 @@ export default function App() {
 
   return (
     <>
-      <div id="pres">
+      <div id="pres" ref={presRef} tabIndex={-1} style={{ outline: 'none' }}>
         <AnimatePresence mode="sync">
           <motion.div
             key={cur}

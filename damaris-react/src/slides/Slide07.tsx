@@ -17,12 +17,6 @@ const STATS = [
     label: 'Design QA cycles',
     note: 'Output matched design intent on the first pass. No back-and-forth.',
   },
-  {
-    value: 'Months',
-    unit: '→ days',
-    label: 'New project UI timeline',
-    note: 'What typically stretched across quarters, now takes days including setup.',
-  },
 ];
 
 const Slide07: SlideComponent = () => (
@@ -72,7 +66,7 @@ const Slide07: SlideComponent = () => (
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: 'repeat(2, 1fr)',
           gap: 18,
           width: '100%',
         }}

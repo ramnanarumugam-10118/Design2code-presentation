@@ -302,7 +302,13 @@ const Slide06: SlideComponent = () => (
           </PhoneMockup>
         </motion.div>
         <motion.div variants={fadeUp}>
-          <PhoneMockup label="App polish" status="In UAT" />
+          <PhoneMockup label="App polish" status="In UAT">
+            <img
+              src="/App-polish.jpg"
+              alt="App polish"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
+            />
+          </PhoneMockup>
         </motion.div>
       </div>
     </div>
