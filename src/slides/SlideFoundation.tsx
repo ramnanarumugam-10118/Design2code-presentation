@@ -37,7 +37,7 @@ const POINTS = [
   },
 ];
 
-const IMAGES = ['/foundation-1.png', '/foundation-2.png', '/foundation-3.png'];
+const IMAGES = ['foundation-1.png', 'foundation-2.png', 'foundation-3.png'];
 
 const SlideFoundation: SlideComponent = () => {
   const [imgIndex, setImgIndex] = useState(0);
@@ -176,7 +176,7 @@ const SlideFoundation: SlideComponent = () => {
             <AnimatePresence mode="sync">
               <motion.img
                 key={imgIndex}
-                src={IMAGES[imgIndex]}
+                src={`${import.meta.env.BASE_URL}${IMAGES[imgIndex]}`}
                 alt={`Foundation visual ${imgIndex + 1}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

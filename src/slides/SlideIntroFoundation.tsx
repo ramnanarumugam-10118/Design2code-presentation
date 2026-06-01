@@ -145,7 +145,7 @@ const SlideIntroFoundation: SlideComponent = () => (
         }}
       >
         <img
-          src="/design-system-visual.png"
+          src={`${import.meta.env.BASE_URL}design-system-visual.png`}
           alt="Design system visual"
           style={{
             width: '80%',

@@ -6,4 +6,8 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [tailwindcss(), react()],
   base: '/Design2code-presentation/',
+  build: {
+    outDir: 'docs',
+    emptyOutDir: true,
+  },
 })

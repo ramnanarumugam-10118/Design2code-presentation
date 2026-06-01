@@ -286,7 +286,7 @@ const Slide06: SlideComponent = () => (
         <motion.div variants={fadeUp}>
           <PhoneMockup label="Bike journey" status="In UAT">
             <img
-              src="/Bike-plan.png"
+              src={`${import.meta.env.BASE_URL}Bike-plan.png`}
               alt="Bike journey"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
             />
@@ -295,7 +295,7 @@ const Slide06: SlideComponent = () => (
         <motion.div variants={fadeUp}>
           <PhoneMockup label="Landing page" status="In UAT">
             <img
-              src="/Bike-mobile.png"
+              src={`${import.meta.env.BASE_URL}Bike-mobile.png`}
               alt="Landing page"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
             />
@@ -304,7 +304,7 @@ const Slide06: SlideComponent = () => (
         <motion.div variants={fadeUp}>
           <PhoneMockup label="App polish" status="In exploration">
             <img
-              src="/App-polish.jpg"
+              src={`${import.meta.env.BASE_URL}App-polish.jpg`}
               alt="App polish"
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
             />
