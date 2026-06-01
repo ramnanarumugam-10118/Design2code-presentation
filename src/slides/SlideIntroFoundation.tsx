@@ -148,7 +148,7 @@ const SlideIntroFoundation: SlideComponent = () => (
           src="/design-system-visual.png"
           alt="Design system visual"
           style={{
-            width: '65%',
+            width: '80%',
             height: 'auto',
             objectFit: 'contain',
           }}

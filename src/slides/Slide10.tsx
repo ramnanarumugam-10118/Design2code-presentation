@@ -13,29 +13,29 @@ const ROWS = [
   },
   {
     n: '02',
-    title: 'Governance model for components',
-    body: 'Define ownership, contribution standards, and review process for every component. Engineering and design aligned on how the system grows.',
-    pill: 'Now',
-    dot: 'amber' as const,
-  },
-  {
-    n: '03',
     title: 'Flutter workflow',
     body: 'Bring the design-to-code pipeline to Flutter, end to end.',
     pill: 'Next',
     dot: 'amber' as const,
   },
   {
+    n: '03',
+    title: 'Governance model for components',
+    body: 'Define ownership, contribution standards, and review process for every component. Engineering and design aligned on how the system grows.',
+    pill: 'Now',
+    dot: 'amber' as const,
+  },
+  {
     n: '04',
-    title: 'Default for every designer',
-    body: 'Workflow adopted as the default across the design org.',
+    title: 'Migrate existing pages',
+    body: 'Move legacy surfaces onto the new system, progressively.',
     pill: 'Up next',
     dot: 'red' as const,
   },
   {
     n: '05',
-    title: 'Migrate existing pages',
-    body: 'Move legacy surfaces onto the new system, progressively.',
+    title: 'Default for every designer',
+    body: 'Workflow adopted as the default across the design org.',
     pill: 'Up next',
     dot: 'red' as const,
   },
@@ -66,44 +66,69 @@ const Slide10: SlideComponent = () => (
           What's next.
         </h2>
       </motion.div>
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        {ROWS.map((row, i) => (
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 10 }}>
+        {ROWS.map((row) => (
           <motion.div
             key={row.n}
             variants={fadeUp}
+            className="card-light"
             style={{
-              display: 'grid',
-              gridTemplateColumns: '40px 1fr',
-              gap: 16,
+              position: 'relative',
+              padding: '18px 28px 18px 36px',
+              display: 'flex',
               alignItems: 'center',
-              padding: '11px 0',
-              borderBottom: i === ROWS.length - 1 ? 'none' : '1px solid rgba(88,0,146,0.14)',
+              gap: 20,
+              overflow: 'hidden',
             }}
           >
+            {/* Purple accent bar */}
+            <div
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 12,
+                bottom: 12,
+                width: 4,
+                background: '#580092',
+                borderRadius: 2,
+              }}
+            />
             <p
               style={{
-                fontSize: 13,
-                color: '#9f9f9f',
-                fontWeight: 600,
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontSize: 12,
+                color: '#ad56ff',
+                fontWeight: 700,
                 letterSpacing: '0.15em',
+                flexShrink: 0,
+                width: 24,
               }}
             >
               {row.n}
             </p>
-            <div>
+            <div style={{ flex: 1 }}>
               <p
                 style={{
-                  fontSize: 17,
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  fontWeight: 600,
+                  fontSize: 17,
+                  fontWeight: 700,
                   color: '#000000',
                   marginBottom: 3,
-                  letterSpacing: '-0.2px',
+                  letterSpacing: '-0.3px',
+                  lineHeight: 1.25,
                 }}
               >
                 {row.title}
               </p>
-              <p className="body-sm" style={{ fontSize: 13 }}>
+              <p
+                style={{
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
+                  fontSize: 13,
+                  lineHeight: 1.5,
+                  color: '#585858',
+                  fontWeight: 400,
+                }}
+              >
                 {row.body}
               </p>
             </div>

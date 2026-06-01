@@ -10,7 +10,6 @@ import SlideWorkflowComparison from './SlideWorkflowComparison';
 import Slide06 from './Slide06';
 import Slide07 from './Slide07';
 import Slide08 from './Slide08';
-import SlideHonestScope from './SlideHonestScope';
 import Slide09 from './Slide09';
 import Slide10 from './Slide10';
 import Slide11 from './Slide11';
@@ -33,7 +32,6 @@ export const slides: SlideComponent[] = [
   Slide06,
   Slide07,
   Slide08,            // Six shifts (now light + horizontal list)
-  SlideHonestScope,
   Slide10,
   Slide11,
 ];

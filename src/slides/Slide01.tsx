@@ -55,7 +55,7 @@ const Slide01: SlideComponent = () => (
           letterSpacing: '-3px',
         }}
       >
-        XXXXXX
+        Atlas
       </motion.p>
     </div>
   </motion.div>
