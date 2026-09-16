@@ -118,7 +118,6 @@ const Slide02: SlideComponent = () => (
 
     <div className="content">
       <motion.div variants={fadeUp} style={{ marginBottom: 28 }}>
-        <div className="eyebrow">Today</div>
         <h2
           style={{
             fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -134,7 +133,7 @@ const Slide02: SlideComponent = () => (
             paddingBottom: '0.15em',
           }}
         >
-          Where we are today.
+          The problems we have today
         </h2>
       </motion.div>
 

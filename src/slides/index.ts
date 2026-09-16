@@ -18,20 +18,34 @@ export type Theme = 'dark' | 'light';
 
 export type SlideComponent = React.FC<{ step?: number }> & { theme: Theme; steps?: number };
 
+// Short deck — the link that gets sent around. Answers what this is, why,
+// how it works, and what it changes. Status and metrics live in the email.
 export const slides: SlideComponent[] = [
+  Slide01,                // Title
+  Slide02,                // Why — the problems we have today
+  Slide04,                // What we built — two pillars
+  SlideFoundation,        // How — tokens, atoms, code-ready components
+  SlideDesignSystem,      // How — prompt morphs the claim form
+  SlideWorkflowComparison,// How — traditional vs AI-prototype vs streamlined
+  Slide08,                // What this changes across the org
+  Slide11,                // Close — anyone with judgement can build
+];
+
+// Full deck — every slide, for presenting live with narration.
+export const slidesFull: SlideComponent[] = [
   Slide01,
-  Slide02,            // Problem (5 problems, glassmorphic light list)
-  Slide03,            // Scope (4 pointers, glassmorphic)
-  Slide04,            // What we built (2 pillars, in sequence)
-  SlideIntroFoundation, // Visual language intro — consistent way of speaking visually
-  SlideFoundation,    // Design-system foundation (5 numbered points + L0–L4 visual)
-  SlideDesignSystem,  // Claim-form morph driven by chat prompts
-  Slide05,            // How we ship today (workflow journey)
-  Slide09,            // Demo — interstitial
+  Slide02,
+  Slide03,                // Scope — four pointers
+  Slide04,
+  SlideIntroFoundation,   // Visual language — not a rebrand, a standardisation
+  SlideFoundation,
+  SlideDesignSystem,
+  Slide05,                // How we ship today — the five-step journey
+  Slide09,                // "Let's see it in action" — live-demo cue
   SlideWorkflowComparison,
-  Slide06,
-  Slide07,
-  Slide08,            // Six shifts (now light + horizontal list)
-  Slide10,
+  Slide06,                // Pilots — we already started
+  Slide07,                // Early results — 10-12 days to 1.5
+  Slide08,
+  Slide10,                // Roadmap
   Slide11,
 ];

@@ -586,7 +586,7 @@ const SlideDesignSystem: SlideComponent = ({ step = 0 }) => {
         style={{ position: 'absolute', top: 64, left: 80, zIndex: 5 }}
       >
         <div className="eyebrow" style={{ marginBottom: 0 }}>
-          Design system
+          From prompt to interface
         </div>
       </motion.div>
 

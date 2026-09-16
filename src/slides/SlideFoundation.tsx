@@ -66,7 +66,6 @@ const SlideFoundation: SlideComponent = () => {
 
       <div className="content">
         <motion.div variants={fadeUp} style={{ marginBottom: 28 }}>
-          <div className="eyebrow">The design system</div>
           <h2
             style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -77,7 +76,7 @@ const SlideFoundation: SlideComponent = () => {
               color: '#000000',
             }}
           >
-            A proper foundation,{' '}
+            The{' '}
             <span
               style={{
                 background: 'linear-gradient(135deg, #580092 0%, #ad56ff 60%, #d1aef9 100%)',
@@ -86,7 +85,7 @@ const SlideFoundation: SlideComponent = () => {
                 color: 'transparent',
               }}
             >
-              built ground-up.
+              design system
             </span>
           </h2>
         </motion.div>

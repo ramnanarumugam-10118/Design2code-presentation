@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { staggerParent, fadeUp, scaleIn, softFade } from '../motion';
+import { staggerParent, fadeUp, scaleIn, softFade, ease } from '../motion';
 import { LOGO_DARK } from '../assets';
 import type { SlideComponent } from './index';
 
@@ -42,7 +42,7 @@ const Slide01: SlideComponent = () => (
           letterSpacing: '-0.4px',
         }}
       >
-        Project:
+        Design system:
       </motion.p>
       <motion.p
         variants={scaleIn}
@@ -55,8 +55,21 @@ const Slide01: SlideComponent = () => (
           letterSpacing: '-3px',
         }}
       >
-        Atlas
+        Umbrella
       </motion.p>
+
+      {/* Sent as a link, so say plainly that this is keyboard-driven. */}
+      <motion.div
+        className="start-hint"
+        style={{ marginTop: 48 }}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.15, duration: 0.6, ease }}
+      >
+        <span className="kbd">&larr;</span>
+        <span className="kbd">&rarr;</span>
+        <span>Use the arrow keys to move back and forward</span>
+      </motion.div>
     </div>
   </motion.div>
 );

@@ -119,7 +119,6 @@ const Slide08: SlideComponent = () => (
 
     <div className="content">
       <motion.div variants={fadeUp} style={{ marginBottom: 28 }}>
-        <div className="eyebrow">What this changes</div>
         <h2
           style={{
             fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -130,7 +129,7 @@ const Slide08: SlideComponent = () => (
             color: '#000000',
           }}
         >
-          Six shifts,{' '}
+          What this changes{' '}
           <span
             style={{
               background:
@@ -140,7 +139,7 @@ const Slide08: SlideComponent = () => (
               color: 'transparent',
             }}
           >
-            across the org.
+            across the org
           </span>
         </h2>
       </motion.div>

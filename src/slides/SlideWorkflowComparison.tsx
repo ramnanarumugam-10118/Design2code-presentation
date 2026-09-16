@@ -113,7 +113,6 @@ const SlideWorkflowComparison: SlideComponent = () => (
 
     <div className="content">
       <motion.div variants={fadeUp} style={{ marginBottom: 20 }}>
-        <div className="eyebrow">Comparison</div>
         <h2
           style={{
             fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -124,8 +123,8 @@ const SlideWorkflowComparison: SlideComponent = () => (
             letterSpacing: '-1.6px',
           }}
         >
-          Three workflows,{' '}
-          <span style={{ color: '#ad56ff' }}>compared.</span>
+          How the{' '}
+          <span style={{ color: '#ad56ff' }}>workflow changes</span>
         </h2>
       </motion.div>
 

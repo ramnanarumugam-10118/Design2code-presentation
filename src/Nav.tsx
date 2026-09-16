@@ -9,7 +9,14 @@ interface NavProps {
 export function Nav({ cur, total, onGo }: NavProps) {
   return (
     <div className="nav">
-      <img src={LOGO_DARK} style={{ height: 22, opacity: 0.5 }} alt="ACKO" />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
+        <img src={LOGO_DARK} style={{ height: 22, opacity: 0.5 }} alt="ACKO" />
+        <div className="nav-hint">
+          <span className="kbd">&larr;</span>
+          <span className="kbd">&rarr;</span>
+          <span>arrow keys to navigate</span>
+        </div>
+      </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <div className="dots">
           {Array.from({ length: total }).map((_, i) => (

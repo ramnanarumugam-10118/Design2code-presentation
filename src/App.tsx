@@ -1,12 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { slides } from './slides';
+import { slides, type SlideComponent } from './slides';
 import { Nav } from './Nav';
 import { slideFade, ease } from './motion';
 
-const TOTAL = slides.length;
+interface AppProps {
+  /** Which deck to render. Defaults to the short send-across version. */
+  deck?: SlideComponent[];
+}
 
-export default function App() {
+export default function App({ deck = slides }: AppProps) {
+  const TOTAL = deck.length;
   const [cur, setCur] = useState(0);
   const [step, setStep] = useState(0);
 
@@ -19,6 +23,59 @@ export default function App() {
   useEffect(() => {
     presRef.current?.focus({ preventScroll: true });
   }, [cur]);
+
+  // Forward/back live here so the keys, the nav buttons and a plain click
+  // all move through the deck identically. Only refs and stable setters are
+  // touched, so an empty dep list stays correct.
+  const goForward = useCallback(() => {
+    const c = curRef.current;
+    const s = stepRef.current;
+    const slideSteps = deck[c].steps;
+    if (slideSteps && s < slideSteps - 1) {
+      const ns = s + 1;
+      stepRef.current = ns;
+      setStep(ns);
+    } else if (c < TOTAL - 1) {
+      curRef.current = c + 1;
+      stepRef.current = 0;
+      setCur(c + 1);
+      setStep(0);
+    }
+  }, [deck, TOTAL]);
+
+  const goBack = useCallback(() => {
+    const c = curRef.current;
+    const s = stepRef.current;
+    if (s > 0) {
+      const ns = s - 1;
+      stepRef.current = ns;
+      setStep(ns);
+    } else if (c > 0) {
+      curRef.current = c - 1;
+      stepRef.current = 0;
+      setCur(c - 1);
+      setStep(0);
+    }
+  }, []);
+
+  // A click anywhere on the slide advances, except on something the reader is
+  // actually meant to interact with (the claim-form demo has live inputs), and
+  // except when they were selecting text.
+  const handleSlideClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const target = e.target as HTMLElement | null;
+      if (
+        target?.closest(
+          'input, textarea, select, button, a, label, [role="button"], [contenteditable="true"]'
+        )
+      ) {
+        return;
+      }
+      if (window.getSelection()?.toString()) return;
+      goForward();
+    },
+    [goForward]
+  );
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -39,32 +96,10 @@ export default function App() {
       (document.activeElement as HTMLElement)?.blur?.();
       presRef.current?.focus({ preventScroll: true });
 
-      const c = curRef.current;
-      const s = stepRef.current;
-      const slideSteps = slides[c].steps;
-
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-        if (slideSteps && s < slideSteps - 1) {
-          const ns = s + 1;
-          stepRef.current = ns;
-          setStep(ns);
-        } else if (c < TOTAL - 1) {
-          curRef.current = c + 1;
-          stepRef.current = 0;
-          setCur(c + 1);
-          setStep(0);
-        }
+        goForward();
       } else {
-        if (s > 0) {
-          const ns = s - 1;
-          stepRef.current = ns;
-          setStep(ns);
-        } else if (c > 0) {
-          curRef.current = c - 1;
-          stepRef.current = 0;
-          setCur(c - 1);
-          setStep(0);
-        }
+        goBack();
       }
     };
 
@@ -72,7 +107,7 @@ export default function App() {
     // can handle it.
     window.addEventListener('keydown', onKey, true);
     return () => window.removeEventListener('keydown', onKey, true);
-  }, []); // Empty — refs keep values current without re-registering
+  }, [goForward, goBack]); // Both are stable, so this registers once
 
   const handleNav = (n: number) => {
     curRef.current = n;
@@ -81,12 +116,18 @@ export default function App() {
     setStep(0);
   };
 
-  const SlideComponent = slides[cur];
+  const SlideComponent = deck[cur];
   const isLight = SlideComponent.theme === 'light';
 
   return (
     <>
-      <div id="pres" ref={presRef} tabIndex={-1} style={{ outline: 'none' }}>
+      <div
+        id="pres"
+        ref={presRef}
+        tabIndex={-1}
+        onClick={handleSlideClick}
+        style={{ outline: 'none', cursor: 'pointer' }}
+      >
         <AnimatePresence mode="sync">
           <motion.div
             key={cur}
