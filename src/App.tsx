@@ -24,6 +24,32 @@ export default function App({ deck = slides }: AppProps) {
     presRef.current?.focus({ preventScroll: true });
   }, [cur]);
 
+  // Deep links: "#3" opens the deck on slide 3, so an email thumbnail can
+  // point at the slide it shows. Also lets each slide be screenshotted.
+  useEffect(() => {
+    const applyHash = () => {
+      const n = parseInt(window.location.hash.slice(1), 10);
+      if (Number.isNaN(n) || n < 1 || n > TOTAL) return;
+      const idx = n - 1;
+      curRef.current = idx;
+      stepRef.current = 0;
+      setCur(idx);
+      setStep(0);
+    };
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
+    return () => window.removeEventListener('hashchange', applyHash);
+  }, [TOTAL]);
+
+  // Mirror the current slide back into the URL so it can be copied and shared.
+  // replaceState does not fire hashchange, so this cannot loop.
+  useEffect(() => {
+    const want = `#${cur + 1}`;
+    if (window.location.hash !== want) {
+      window.history.replaceState(null, '', want);
+    }
+  }, [cur]);
+
   // Forward/back live here so the keys, the nav buttons and a plain click
   // all move through the deck identically. Only refs and stable setters are
   // touched, so an empty dep list stays correct.

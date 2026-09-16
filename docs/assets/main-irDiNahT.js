@@ -1,0 +1,1 @@
+import{a as e,i as t,l as n,r}from"./Button-ZdIHVxob.js";import{t as i}from"./App-DHS81rAT.js";var a=n(e(),1),o=t(),s=r();(0,o.createRoot)(document.getElementById(`root`)).render((0,s.jsx)(a.StrictMode,{children:(0,s.jsx)(i,{})}));
